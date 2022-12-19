@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+    <div class="container text-center">
+        <h3>TAXI RANK REGISTRATION</h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row p-3 g-2 d-flex justify-content-center">
+                <label class="col-sm-2 col-form-label  fw-bold d-flex justify-content-start">Province</label>
+                <div class="col-sm-10 mb-3">
+                  {{form.province}}
+                </div>
+                <label class="col-sm-2 col-form-label  fw-bold d-flex justify-content-start">City</label>
+                <div class="col-sm-10 mb-3">
+                  {{form.city}}
+                </div>
+                <label class="col-sm-2 col-form-label  fw-bold d-flex justify-content-start">Town</label>
+                <div class="col-sm-10 mb-3">
+                  {{form.town}}
+                </div>
+                <label class="col-sm-2 col-form-label  fw-bold d-flex justify-content-start">Rank Name</label>
+                <div class="col-sm-10 mb-3">
+                  {{form.rankName}}
+                </div>
+              </div>
+            <button type="submit" class="btn btn-outline-dark">SUBMIT</button>
+          </form>
+    </div>
+
+{% endblock%}

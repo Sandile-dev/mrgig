@@ -1,0 +1,62 @@
+{% extends 'publicNav.html' %}
+
+{% block content%}
+
+    <div class="container text-center">
+ 
+      <h3>Join the Network of MrGig Taxi Courier Parcel Partners</h3>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+              <div class="row p-3 g-2 d-flex justify-content-start">
+                <h5>PERSONAL DETAILS</h5>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">First Name</label>
+                <div class="col-sm-10 mb-3 w-75">
+                  {{form.fname}}
+                 </div>
+                <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Last Name</label>
+                <div class="col-sm-10 mb-3 w-75">
+                  {{form.lname}}
+                </div>
+                <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Cellphone</label>
+                <div class="col-sm-10 mb-3 w-75">
+                  {{form.phone}}
+                </div>
+                <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Email Address</label>
+                <div class="col-sm-10 mb-3 w-75">
+                  {{form.email}}
+                </div>
+                <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Residential Address</label>
+                <div class="col-sm-10 mb-3 w-75">
+                  {{form.raddress}}
+                </div>
+              </div>
+              <div class="row p-2 g-2 d-flex justify-content-start">
+                  <h5>SITE APPLICATION DETAILS</h5>
+              </div>
+              <div class="row mb-3">
+                <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">JOB TITLE</label>
+                  <div class="col-sm-10 mb-3 w-75">
+                   {{form.job}}
+                  </div>
+                  <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">PROVINCE</label>
+                  <div class="col-sm-10 mb-3 w-75">
+                   {{form.province}}
+                  </div>
+                  <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">CITY/TOWN</label>
+                  <div class="col-sm-10 mb-3 w-75">
+                    {{form.city}}
+                  </div>
+                  <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Motivation</label>
+                  <div class="col-sm-10 mb-3 w-75">
+                    {{form.motivation}}
+                  </div>
+                </div>
+              </div>
+            <button type="submit" class="btn btn-outline-dark">SUBMIT</button>
+          </form>
+    </div>
+
+{% endblock%}

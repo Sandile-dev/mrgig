@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container text-center">
+    <h3>DRIVER DETAILS</h3>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="row p-3 g-2 d-flex justify-content-center">
+            <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Parcel Rerefence</label>
+            <div class="col-sm-10 mb-3">
+              {{driver_form.parcel}}
+            </div>
+            <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Full Name</label>
+            <div class="col-sm-10 mb-3">
+              {{driver_form.name}}
+            </div>
+            <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Cellphone</label>
+            <div class="col-sm-10 mb-3">
+              {{driver_form.phoneNumber}}
+            </div>
+            <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Rank Name</label>
+            <div class="col-sm-10 mb-3">
+              {{driver_form.driver_route}}
+            </div>
+            <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Taxi Reg. Number</label>
+            <div class="col-sm-10 mb-3">
+              {{driver_form.taxiRegNumber}}
+            </div>
+          </div>
+        <button type="submit" class="btn btn-outline-dark">SUBMIT</button>
+    </form>
+</div>
+
+{% endblock %}

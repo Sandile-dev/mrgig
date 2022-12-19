@@ -1,0 +1,65 @@
+{% extends 'publicNav.html' %}
+
+{% block content %}
+<h3>PARCEL LOOKUP</h3>
+<div class="row p-2 g-2 d-flex justify-content-center">
+        <div class="form-group">
+            <form class="d-flex justify-content-sm-center" role="search" method="get">
+                <div class="row mb-3">
+                    <div class="col-md-5 gx-3 p-2">
+                        <label class="fw-bold">Reference Number</label>
+                    </div>
+                    <div class="col-md-5 gx-3 p-2">
+                        {{myFilter.form.refNumber}}
+                     </div>
+                   <div class="col-md-2">
+                    <button class="btn btn-outline-dark" type="submit">SEARCH</button>
+                   </div>
+                </div>
+            </form>
+        </div>  
+</div>
+
+<br/>
+    <div class="row gx-5">
+        <div class="col-sm-6">
+            <div class="row g-2 border bg-light">
+                <h5>LONG DISTANCE ROUTES</h5>
+            </div>
+            <div class="row p-3 g-3">
+                {% for driver in drivers %}
+                {% if driver.parcel.status == 'On the Route' %}
+                <div class="card">
+                    <div class="card-body">
+                        Route:  {{driver.parcel.origination}} - {{driver.parcel.destination}} <br/>
+                        Responsible driver is {{driver.name}} driving a taxi with registration number 
+                        {{driver.taxiRegNumber}}.
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row g-2 border bg-light">
+                <h5>LOCAL ROUTES</h5>
+            </div>
+            <div class="row p-3 g-3">
+                {% for driver in drivers %}
+                {% if driver.parcel.status == 'Out for Delivery'  %}
+                <div class="card">
+                    <div class="card-body">
+                        Route:  {{driver.parcel.origination}} - {{driver.parcel.destination}} <br/>
+                        Responsible driver is {{driver.name}} driving a taxi with registration number 
+                        {{driver.taxiRegNumber}}.
+                    </div>
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+
+
+{% endblock %}

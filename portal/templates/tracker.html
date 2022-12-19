@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container text-center"> 
+  <h3>PARCEL STATUS</h3>
+  <div class="row p-3 g-2 d-flex justify-content-center">
+    <form class="d-flex justify-content-sm-center" role="search" method="get">
+        <div class="row mb-3">
+            <div class="col-md-5 gx-3 p-2">
+                <label class="fw-bold">Reference Number</label>
+            </div>
+            <div class="col-md-5 gx-3 p-2">
+              {{myFilter.form.refNumber}}
+             </div>
+           <div class="col-md-2">
+            <button class="btn btn-outline-dark" type="submit">SEARCH</button>
+           </div>
+        </div>
+    </form>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-3">
+      <div class="row g-2">
+        <h5 class="border bg-light p-3">On the Route</h5>
+
+        {% for driver in drivers %} 
+        {% if driver.parcel.status == "On the Route" %}
+          <div class="card w-auto h-75 mb-2">
+              <div class="card-header">{{driver.parcel.refNumber}}</div>
+                <div class="card-body">
+                  <h5 class="card-title">{{driver.parcel.customer.receiver_name}} {{driver.parcel.customer.receiver_surname}}</h5>
+                  <p class="card-text">Route: {{driver.parcel.origination}} - {{driver.parcel.destination}}</p>
+                  <p class="card-text">Responsible Driver is {{driver.name}} {{driver.surname}} driving a taxi with registration number 
+                    {{driver.taxiRegNumber}}. You may contact the driver at {{driver.phoneNumber}}.
+                  </p>
+                  <a class="btn btn-outline-dark" href="{% url 'updateParcel' driver.parcel.id %}">UPDATE</a>
+                </div>
+            </div>
+    
+            {% endif%}
+            {% endfor %}
+    </div>
+    </div>
+    <br>
+    <div class="col-md-3">
+      <div class="row g-2">
+        <h5 class="border bg-light p-3">Out for Delivery</h5>
+        {% for driver in drivers %} 
+        {% if driver.parcel.status == "Out for Delivery" %}
+            <div class="card w-auto h-75 mb-2">
+              <div class="card-header">{{driver.parcel.refNumber}}</div>
+                <div class="card-body">
+                  <h5 class="card-title">{{driver.parcel.customer.receiver_name}} {{driver.parcel.customer.receiver_surname}}</h5>
+                  <p class="card-text">Route: {{driver.parcel.origination}} - {{driver.parcel.destination}}</p>
+                  <p class="card-text">Responsible Driver is {{driver.name}} {{driver.surname}} driving a taxi with registration number 
+                    {{driver.taxiRegNumber}}. You may contact the driver at {{driver.phoneNumber}}.
+                  </p>
+                  <a class="btn btn-outline-dark" href="{% url 'updateParcel' driver.parcel.id %}">UPDATE</a>
+                </div>
+            </div>
+           
+            {% endif%}
+            {% endfor %}
+    </div>
+    </div>
+    <br>
+    <div class="col-md-3">
+      <div class="row g-2">
+        <h5 class="border bg-light p-3">Delivered</h5>
+        {% for driver in drivers %} 
+        {% if driver.parcel.status == "Delivered" %}
+            <div class="card w-auto h-75 mb-2">
+              <div class="card-header">{{driver.parcel.refNumber}}</div>
+            <div class="card-body">
+              <h5 class="card-title">{{driver.parcel.customer.receiver_name}} {{driver.parcel.customer.receiver_surname}}</h5>
+              <p class="card-text">Route: {{driver.parcel.origination}} - {{driver.parcel.destination}}</p>
+              <p class="card-text">Responsible Driver is {{driver.name}} {{driver.surname}} driving a taxi with registration number 
+                {{driver.taxiRegNumber}}. You may contact the driver at {{driver.phoneNumber}}.
+              </p>
+                <a class="btn btn-outline-dark" href="{% url 'deleteParcel' driver.parcel.id %}">CLOSE</a>
+              </div>
+            </div>
+           
+        {% endif%}
+        {% endfor %}
+    </div>
+    </div>
+    <br>
+    <div class="col-md-3">
+      <div class="row g-2">
+        <h5 class="border bg-light p-3">Returned</h5>
+        {% for driver in drivers %} 
+        {% if driver.parcel.status == "Returned" %}
+          <div class="card w-auto h-75 mb-2">
+            <div class="card-header">{{driver.parcel.refNumber}}</div>
+            <div class="card-body">
+              <h5 class="card-title">{{driver.parcel.customer.receiver_name}} {{driver.parcel.customer.receiver_surname}}</h5>
+              <p class="card-text">Route: {{driver.parcel.origination}} - {{driver.parcel.destination}}</p>
+              <p class="card-text">Responsible Driver is {{driver.name}} {{driver.surname}} driving a taxi with registration number 
+                {{driver.taxiRegNumber}}. You may contact the driver at {{driver.phoneNumber}}.
+              </p>
+              <a class="btn btn-outline-dark" href="{% url 'updateParcel' driver.parcel.id %}">UPDATE</a>
+            </div>
+          </div>
+         
+          {% endif%}
+        {% endfor %}
+    </div>
+    </div>
+    <br>
+  </div>
+</div>
+
+{% endblock %}

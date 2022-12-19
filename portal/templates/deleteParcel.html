@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>Are you sure you want to permanently close this parcel "{{item}}"?</p>
+<div class="row g-2 d-flex justify-content-start">
+    <div>
+        <form action="{% url 'deleteParcel' item.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit"  class="btn btn-outline-dark w-25" href="{% url 'tracker' %}">CONFIRM</button>
+        </form>
+    </div>
+    <div>
+        <button type="submit"  class="btn btn-outline-dark w-25" href="{% url 'tracker' %}">CANCEL</button>
+    </div>
+</div>
+{% endblock %}

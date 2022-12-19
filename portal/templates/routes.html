@@ -1,0 +1,45 @@
+{% extends 'publicNav.html' %}
+
+{% block content%}
+
+<div class="container text-center">
+  <h3>OPERATING TAXI RANKS</h3>
+    <div class="row p-2 g-2 d-flex justify-content-center">
+      <form class="d-flex justify-content-sm-center" role="search" method="get">
+          <div class="row mb-3">
+              <div class="col-md-5 gx-3 p-2">
+                  <label class="fw-bold">Province</label>
+              </div>
+              <div class="col-md-5 gx-3 p-2">
+                {{myFilter.form.province}}
+               </div>
+             <div class="col-md-2">
+              <button class="btn btn-outline-dark" type="submit">SEARCH</button>
+             </div>
+          </div>
+      </form>
+    </div>
+    <div class="row mb-3">
+      <div class="col-sm-6 p-2">
+        <div class="card w-auto">
+          <div class="card-body">
+            <h5 class="card-title">CITY</h5>
+            {% for route in routes %}
+            <p class="card-text"> {{route.city}}</p>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 p-2">
+        <div class="card w-auto">
+          <div class="card-body">
+            <h5 class="card-title">TAXI RANK NAME</h5>
+            {% for route in routes %}
+            <p class="card-text"> {{route.rankName}}</p>
+            {% endfor %}
+          </div>
+        </div>
+        </div>
+    </div>
+
+    {% endblock%}

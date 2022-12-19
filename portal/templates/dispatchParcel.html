@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>PARCEL LOOKUP</h3>
+
+<div class="container text-center">
+<div class="row p-2 g-2 d-flex justify-content-center">
+        <div class="form-group">
+            <form class="d-flex justify-content-sm-center" role="search" method="get">
+                <div class="row mb-3">
+                    <div class="col-md-5 gx-3 p-2">
+                        <label class="fw-bold">Reference Number</label>
+                    </div>
+                    <div class="col-md-5 gx-3 p-2">
+                        {{myFilter.form.refNumber}}
+                     </div>
+                   <div class="col-md-2">
+                    <button class="btn btn-outline-dark" type="submit">SEARCH</button>
+                   </div>
+                </div>
+            </form>
+        </div>  
+</div>
+<div class="row g-3 d-flex justify-content-center">
+
+    <div class="row g-2 border bg-light">
+        <h5>AVAILABLE PARCELS</h5>
+    </div>
+    {% for parcel in parcels %}
+    {% if parcel.status == 'New' %}
+    <div class="card ">
+        <div class="card-header">{{parcel.refNumber}}</div>
+          <div class="card-body">
+            <h5 class="card-title">{{parcel.customer.receiver_name}} {{parcel.customer.receiver_surname}}</h5>
+            <p class="card-text">Route: {{parcel.origination}} - {{parcel.destination}}</p>
+            <a class="btn btn-outline-dark w-75" href="{% url 'submitDispatch' parcel.id %}">DISPATCH</a>
+          </div>
+      </div>
+      {% endif %}
+    {% endfor %}
+</div>
+</div>
+</div>
+    
+
+
+{% endblock %}

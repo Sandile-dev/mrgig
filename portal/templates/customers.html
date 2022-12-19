@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+    <div class="container text-center">
+        <h3>CUSTOMER DETAILS</h3>
+        <div class="row g-2 d-flex justify-content-center">
+            <form class="d-flex justify-content-sm-center" role="search" method="get">
+                <div class="row mb-3">
+                    <div class="col-md-5 gx-2 p-2">
+                        <label class="fw-bold">Cellphone Number</label>
+                    </div>
+                    <div class="col-md-5 gx-2 p-2">
+                        {{myFilter.form.sender_phone}}
+                     </div>
+                   <div class="col-md-2">
+                    <button class="btn btn-outline-dark" type="submit">SEARCH</button>
+                   </div>
+                </div>
+            </form>
+          </div>
+
+       
+        <div class="row g-3 d-flex justify-content-center">
+                <div class="row g-2 border bg-light">
+                    <h5>OUR CUSTOMERS</h5>
+                </div>
+                {% for customer in customers %}
+                <div class="row p-3 ">        
+                    <div class="card">
+                      <div class="card-body">
+                          <p class="card-text">Full Name : {{customer.sender_name}} {{customer.sender_surname}} </p>
+                          <p class="card-text">Cellphone : {{customer.sender_phone}}</p>
+                          <a class="btn btn-outline-dark w-75" href="{% url 'updateCustomer' customer.id%}">VIEW</a>
+                        </div>             
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock%}

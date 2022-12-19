@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+    <div class="container text-center">
+ 
+      <h3>CUSTOMER DETAILS</h3>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="row p-3 g-2 d-flex justify-content-center">
+              <h5>SENDER DETAILS</h5>
+          </div>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">First Name</label>
+              <div class="col-sm-10 mb-3">
+                {{form.sender_name}} 
+               </div>
+              <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Last Name</label>
+              <div class="col-sm-10 mb-3">
+                {{form.sender_surname}}
+              </div>
+              <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Cellphone</label>
+              <div class="col-sm-10 mb-3">
+                {{form.sender_phone}}
+              </div>
+            </div>
+            <div class="row p-2 g-2 d-flex justify-content-center">
+                <h5>RECEIVER DETAILS</h5>
+            </div>
+            <div class="row mb-3">
+                <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">First Name</label>
+                <div class="col-sm-10 mb-3">
+                  {{form.receiver_name}}
+                </div>
+                <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Last Name</label>
+                <div class="col-sm-10 mb-3">
+                  {{form.receiver_surname}}
+                </div>
+                <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Cellphone</label>
+                <div class="col-sm-10 mb-3">
+                  {{form.receiver_phone}}
+                </div>
+              </div>
+            <div class="row mb-3">
+              <label class="col-sm-2 col-form-label fw-bold d-flex justify-content-start">Notification Type</label>
+              <div class="col-sm-10 mb-3">
+                {{form.notification}}
+              </div>
+            </div>
+                      
+            <button type="submit" class="btn btn-outline-dark">NEXT</button>
+          </form>
+    </div>
+
+{% endblock%}
