@@ -84,7 +84,7 @@ class Partner(models.Model):
     def save(self, *args, **kwargs):
         if self.parcel.status == 'On the Route' or self.parcel.status == 'Out for Delivery':
             account_sid = 'ACa547faabb72f7ffe07d09e204e208c21' 
-            auth_token = 'c7c3117b9ccbd2139c2d4c98dd8fe8d4' 
+            auth_token = '0a897ada1583e0fb8be092fd8dd01c06' 
             client = Client(account_sid, auth_token) 
 
             message = client.messages.create(  
@@ -99,7 +99,7 @@ class Partner(models.Model):
                             )
         else: 
             account_sid = 'ACa547faabb72f7ffe07d09e204e208c21' 
-            auth_token = 'c7c3117b9ccbd2139c2d4c98dd8fe8d4' 
+            auth_token = '0a897ada1583e0fb8be092fd8dd01c06' 
             client = Client(account_sid, auth_token) 
 
             message = client.messages.create(  

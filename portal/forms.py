@@ -93,7 +93,7 @@ class ApplicationForm(forms.Form):
     job = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control',
         'type':'text',
-        'placeholder': 'Enter your application job title'
+        'placeholder': 'Enter job title: Parcel Master / Runner'
     }))
     province = forms.CharField(widget=forms.TextInput(attrs={
         'class':'form-control',

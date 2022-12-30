@@ -241,7 +241,7 @@ def addTaxiRank(request):
 
     if form.is_valid():
         form.save()
-        return redirect('routes')
+        return redirect('tracker')
     
     context = {'form':form}
 
